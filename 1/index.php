@@ -1,4 +1,5 @@
 <?php 
+include 'conexion.php';
 
 ?>
 
@@ -10,6 +11,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>HOLA HOLITA VECINITOS</h1>
 </body>
 </html>
