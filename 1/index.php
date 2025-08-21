@@ -1,6 +1,5 @@
 <?php 
-include 'conexion.php';
-
+include 'conexion.php'; //preguntar que hace esto exactamente
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +10,22 @@ include 'conexion.php';
     <title>Document</title>
 </head>
 <body>
-    <h1>HOLA HOLITA VECINITOS</h1>
+    <h1>Top 5 productos más baratos</h1>
+    <?php
+        $sql = "SELECT * FROM producto ORDER BY precio ASC LIMIT 5"; //mirar la diferencia entre ponerlo asi (html) a ponerlo en sql nativo. Como cambia y porque.
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<ul>";
+            while($row = $result->fetch_assoc()) {
+                echo "<li>" . $row["nombre"] . " - $" . $row["precio"] . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "No hay productos.";
+        }
+
+        $conn->close();
+    ?>
 </body>
 </html>
